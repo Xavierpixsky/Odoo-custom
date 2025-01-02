@@ -1,0 +1,53 @@
+
+
+<odoo>
+    <!-- Vista de formulario mejorada para la gestión de cierre de sesiones -->
+    <record id="view_logout_sessions_form" model="ir.ui.view">
+        <field name="name">logout.sessions.form</field>
+        <field name="model">logout.session</field>
+        <field name="arch" type="xml">
+            <form string="Gestión de Cierre de Sesiones" class="logout-form-custom">
+                <sheet>
+                    <div class="header-section">
+                        <h2 class="header-title">Gestión de Cierre de Sesiones</h2>
+                        <p class="header-description">Desde aquí puedes cerrar sesiones activas o restablecer logins afectados. Selecciona usuarios específicos si es necesario.</p>
+                    </div>
+                    <group>
+                        <field name="targeted_users" widget="many2many_tags" placeholder="Seleccione usuarios" class="field-targeted-users"/>
+                        <field name="motivos" class="field-targeted-users"/>
+                    </group>
+                    <div class="button-group">
+                        <button name="call_logout_sessions" type="object" class="btn-custom btn-logout" string="Cerrar Sesiones"/>
+                        <button name="restore_logins" type="object" class="btn-custom btn-restore" string="Restablecer Logins"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para siempre abrir el registro con ID 1 -->
+    <record id="action_logout_users_sessions" model="ir.actions.act_window">
+        <field name="name">Gestión de Sesiones</field>
+        <field name="res_model">logout.session</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_logout_sessions_form"/>
+        <field name="target">current</field>
+        <field name="context">{'default_id': 1}</field>
+        <field name="res_id">1</field>
+    </record>
+
+    <!-- Menú raíz para la gestión de sesiones -->
+    <menuitem id="menu_pix_logout_root"
+              name="Pix Security"
+              sequence="20"
+              web_icon="pix_security,static/description/icon.png"
+              groups="pix_security.group_control_de_sesiones"/>
+              
+
+    <!-- Submenú para la gestión de sesiones -->
+    <menuitem id="menu_pix_logout_sessions"
+              name="Gestión de Sesiones"
+              parent="menu_pix_logout_root"
+              action="action_logout_users_sessions"
+              groups="pix_security.group_control_de_sesiones"/>
+</odoo>

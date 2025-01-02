@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_logout_session_control,access.logout.session.control,model_logout_session,pix_security.group_control_de_sesiones,1,1,1,1
+access_registro_de_session_off_user,access.registro.de.session.off.user,model_registro_de_session_off,pix_security.group_control_de_sesiones,1,1,1,1

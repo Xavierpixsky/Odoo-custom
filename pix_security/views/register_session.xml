@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Vista lista -->
+    <record id="view_registro_de_session_off_tree" model="ir.ui.view">
+        <field name="name">registro.de.session.off.tree</field>
+        <field name="model">registro.de.session.off</field>
+        <field name="arch" type="xml">
+            <tree string="Registros de Cierre de Sesión Manuales">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="usuarios_afectados"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista formulario -->
+    <record id="view_registro_de_session_off_form" model="ir.ui.view">
+        <field name="name">registro.de.session.off.form</field>
+        <field name="model">registro.de.session.off</field>
+        <field name="arch" type="xml">
+            <form string="Registro de Cierre de Sesión">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="date"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="usuarios_afectados" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Acción para acceder al modelo -->
+    <record id="action_registro_de_session_off" model="ir.actions.act_window">
+        <field name="name">Registros de Cierre de Sesión</field>
+        <field name="res_model">registro.de.session.off</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+  <!-- Menú para los registros de cierre de sesiones -->
+    <menuitem id="menu_registro_de_session_off"
+              name="Registros de Cierre de Sesión"
+              parent="menu_pix_logout_root"
+              action="action_registro_de_session_off"
+              groups="pix_security.group_control_de_sesiones"/>
+ </odoo>

@@ -1,0 +1,71 @@
+
+/* Estilo del formulario */
+.logout-form-custom {
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.header-section {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.header-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.header-description {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+/* Campos personalizados */
+.field-name,
+.field-targeted-users {
+    margin-bottom: 15px;
+}
+
+/* Botones personalizados */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-custom {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-logout {
+    background-color: #e63946;
+    color: #fff;
+}
+
+.btn-logout:hover {
+    background-color: #c5303b;
+    color: #fff;
+}
+
+.btn-restore {
+    background-color: #457b9d;
+    color: #fff;
+}
+
+.btn-restore:hover {
+    background-color: #356178;
+    color: #fff;
+}
